@@ -8,6 +8,11 @@ const Container = styled.div`
   text-align: center;
 `;
 
+const PlayerCardContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 const ResultTitle = styled.p``;
 const Button = styled.button``;
 
@@ -49,12 +54,19 @@ const Game = () => {
 
   return (
     <Container>
-      <PlayerCard
-        color="orange"
-        symbol={playerSymbol}   />
-      <PlayerCard
-        color="red"
-        symbol={computerSymbol}   />
+      <PlayerCardContainer>
+        <PlayerCard
+          color="orange"
+          symbol={playerSymbol}
+          title="Player"
+        />
+        <PlayerCard
+          color="red"
+          symbol={computerSymbol}
+          title="Computer"
+        />
+      </PlayerCardContainer>
+
       <ResultTitle>{winner ? winner : 'Please click run game'}</ResultTitle>
       <Button onClick={runGame}>Run game</Button>
     </Container>

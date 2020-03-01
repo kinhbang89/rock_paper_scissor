@@ -6,8 +6,6 @@ const Player = styled.div<{ color: string, symbol: string }>`
   height: 12.5rem;
   margin: 1.25rem;
   border-radius: 50%;
-  position: relative;
-  display: inline-block;
   border: 2px solid #fff;
   background-repeat: no-repeat;
   background-position: center center;
@@ -20,11 +18,16 @@ const Player = styled.div<{ color: string, symbol: string }>`
 interface IPlayerCard {
   color: string;
   symbol: string;
+  title: string;
 }
 
-const PlayerCard: React.FC<IPlayerCard> = ({color, symbol}) => {
+const PlayerCard: React.FC<IPlayerCard> = ({color, symbol, title}) => {
   return (
-    <Player color={color} symbol={symbol ? require(`./images/${symbol}.png`) : ''}/>
+    <div>
+      <Player color={color} symbol={symbol ? require(`./images/${symbol}.png`) : ''}/>
+      {title}
+    </div>
+
   )
 };
 
