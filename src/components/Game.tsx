@@ -9,6 +9,7 @@ const Container = styled.div`
 
 const ResultTitle = styled.p``;
 const Button = styled.button``;
+
 export const ROCK = 'rock';
 export const PAPER = 'paper';
 export const SCISSORS = 'scissors';
