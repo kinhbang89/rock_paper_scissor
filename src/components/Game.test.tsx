@@ -3,12 +3,7 @@ import {render} from '@testing-library/react';
 import Game, {decideWinner, PAPER, RESULT, ROCK, SCISSORS} from './Game';
 
 describe('Game component', () => {
-  test('renders learn react link', () => {
-    const { getByText } = render(<Game />);
-    const buttonElement = getByText(/Run game/i);
-    expect(buttonElement).toBeInTheDocument();
-  });
-  describe('decideWinner', () => {
+  describe('decideWinner function ', () => {
     const expectedResults = [
       {
         result: RESULT.DRAW,
@@ -23,16 +18,16 @@ describe('Game component', () => {
         symbols: [ROCK, PAPER ,PAPER, SCISSORS, SCISSORS, ROCK]
       }
     ];
-    test('will give the expected result with the right combination of symbol', () => {
-      expectedResults.forEach(({result, symbols}) => {
-        symbols.forEach((symbol, index) => {
-          if ( index % 2 === 0) {
-            const evenSymbol = symbols[index];
-            const oddSymbol = symbols[index + 1];
+    expectedResults.forEach(({result, symbols}) => {
+      symbols.forEach((symbol, index) => {
+        if ( index % 2 === 0) {
+          const evenSymbol = symbols[index];
+          const oddSymbol = symbols[index + 1];
+          test(`${evenSymbol} ${oddSymbol} the result will be => ${result}`, () => {
             expect(decideWinner(evenSymbol,oddSymbol)).toEqual(result);
-          }
-        });
-      })
+          })
+        }
+      });
     })
   })
 });
